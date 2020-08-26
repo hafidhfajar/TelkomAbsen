@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RedEditText">
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorControlNormal">#bd0a0a</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
+    </style>
+
 </resources>

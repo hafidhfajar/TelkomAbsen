@@ -3,11 +3,13 @@ package com.telkom.telkomabsen;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +20,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView dateView = (TextView)findViewById(R.id.txt_date);
         setDate(dateView);
-        TextView timeView = (TextView)findViewById(R.id.txt_time);
-        setTime(timeView);
+        final TextView timeView = (TextView)findViewById(R.id.txt_time);
+
+
+        final Handler someHandler = new Handler(getMainLooper());
+        someHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                timeView.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                someHandler.postDelayed(this, 1000);
+            }
+        }, 10);
 
     }
     public void setDate (TextView view){
@@ -29,11 +40,5 @@ public class MainActivity extends AppCompatActivity {
         String date = formatter.format(today);
         view.setText(date);
     }
-    public void setTime (TextView view){
 
-        Date today = Calendar.getInstance().getTime();//getting date
-        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");//formating according to my need
-        String time = formatter.format(today);
-        view.setText(time);
-    }
 }

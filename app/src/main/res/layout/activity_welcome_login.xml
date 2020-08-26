@@ -102,7 +102,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/sf_regular"
         android:text="Daftar"
-        android:textColor="#0019FF"
+        android:textColor="#bd0a0a"
         android:onClick="onClick"
         android:clickable="true"
         android:textSize="18dp"
